@@ -1,3 +1,3 @@
-const API_URL = 'http://antonin-jolivat.com:5000'
+const API_URL = 'https://antonin-jolivat.com/yelp-api'
 
 export default API_URL
