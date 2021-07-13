@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/yelp-elasticsearch/static/css/main.7b33a0a4.chunk.css",
-    "main.js": "/yelp-elasticsearch/static/js/main.5c084a40.chunk.js",
-    "main.js.map": "/yelp-elasticsearch/static/js/main.5c084a40.chunk.js.map",
+    "main.js": "/yelp-elasticsearch/static/js/main.ec583845.chunk.js",
+    "main.js.map": "/yelp-elasticsearch/static/js/main.ec583845.chunk.js.map",
     "runtime-main.js": "/yelp-elasticsearch/static/js/runtime-main.689ba6c0.js",
     "runtime-main.js.map": "/yelp-elasticsearch/static/js/runtime-main.689ba6c0.js.map",
     "static/css/2.a55abcc0.chunk.css": "/yelp-elasticsearch/static/css/2.a55abcc0.chunk.css",
@@ -26,7 +26,7 @@
     "static/media/right-arrow.030bef3d.svg": "/yelp-elasticsearch/static/media/right-arrow.030bef3d.svg",
     "static/media/search.d500fee3.svg": "/yelp-elasticsearch/static/media/search.d500fee3.svg",
     "static/media/star.36390b91.svg": "/yelp-elasticsearch/static/media/star.36390b91.svg",
-    "static/media/thumb-up.c8632b66.svg": "/yelp-elasticsearch/static/media/thumb-up.c8632b66.svg",
+    "static/media/thumb-up.0021bb9d.png": "/yelp-elasticsearch/static/media/thumb-up.0021bb9d.png",
     "static/media/yelp-logo.86b2b120.svg": "/yelp-elasticsearch/static/media/yelp-logo.86b2b120.svg"
   },
   "entrypoints": [
@@ -34,6 +34,6 @@
     "static/css/2.a55abcc0.chunk.css",
     "static/js/2.be22a3b9.chunk.js",
     "static/css/main.7b33a0a4.chunk.css",
-    "static/js/main.5c084a40.chunk.js"
+    "static/js/main.ec583845.chunk.js"
   ]
 }

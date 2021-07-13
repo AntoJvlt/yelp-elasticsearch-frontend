@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import FunnyEmoji from '../assets/icons/funny.svg'
-import ThumbUpEmoji from '../assets/icons/thumb-up.svg'
+import ThumbUpEmoji from '../assets/icons/thumb-up.png'
 import CoolEmoji from '../assets/icons/cool.svg'
 import StarsRating from "./StarsRating"
 
