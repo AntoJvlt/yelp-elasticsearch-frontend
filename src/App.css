@@ -1,0 +1,368 @@
+h1, h2, h3, p {
+  font-weight: normal;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.main-wrapper {
+  display: flex;
+}
+
+.businesses-section {
+  position: relative;
+  z-index: 10;
+  box-shadow: 2px 2px 10px #bfbfbf;
+  width: 30em;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto-Regular', serif;
+}
+
+.businesses-section h1 {
+  margin-top: 1.5em;
+  margin-right: 1.2em;
+  position: relative;
+  font-family: 'Roboto-Bold', serif;
+}
+
+.yelp-logo {
+  width: 25px;
+  position: absolute;
+  top: -0.4em;
+  right: -1.3em;
+}
+
+/*------------------- SEARCH -------------------*/
+
+.search-area {
+  width: 92%;
+  margin-top: 1.8em;
+}
+
+.search-input-wrapper {
+  display: flex;
+  box-shadow: 1px 1px 5px #bfbfbf;
+  border-radius: 5px;
+  padding: 0.8em 1em 0.8em 1em;
+}
+
+.search-area input {
+  border: none;
+  flex: 1;
+  color: #7A7A7A;
+}
+
+.search-area input {
+  border: none;
+  flex: 1;
+  margin-right: 0.8em;
+  color: #7A7A7A;
+}
+
+.search-icon {
+  width: 15px;
+  cursor: pointer;
+}
+
+.search-icon:hover {
+  opacity: 0.6;
+}
+
+.query-results-label {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #5e5e5e;
+  font-size: 0.9em;
+}
+
+.query-results-label span {
+  font-weight: bold;
+}
+
+/*------------------- SORT -------------------*/
+
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.sort-wrapper p {
+  font-size: 0.9em;
+  color: #636363;
+  margin-left: 0.2em;
+}
+
+.cities-selector {
+  margin-left: 1em;
+  max-width: 15em;
+  background: none;
+  outline: none;
+  border: solid 1px #cfcfcf;
+  border-radius: 20px;
+  padding: 0.5em 0em 0.5em 0.7em;
+  color: #636363;
+}
+
+option:hover {
+  background: none;
+}
+
+.close-icon {
+  width: 15px;
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+/*------------------- Businesses List -------------------*/
+
+.businesses-list {
+  width: 100%;
+}
+
+.business-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto-Regular', serif;
+  border-top: solid 1px #e8e8e8;
+  padding: 0.8em 5% 0.8em 5%;
+}
+
+.business-card:hover {
+  background-color: #fafafa;
+}
+
+.business-card p {
+  color: #8B8F93;
+  font-size: 0.85em;
+}
+
+.business-infos-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.business-main-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.business-main-infos h3 {
+  font-size: 0.95em;
+  margin-bottom: 0.1em;
+}
+
+.business-categories-list {
+  position: relative;
+  left: -0.2em;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.3em;
+}
+
+p.business-categorie {
+  border-radius: 20px;
+  border: solid 1px #e3e3e3;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 0.7em;
+  margin-top: 0.4em;
+  margin-right: 0.3em;
+}
+
+.business-ratings-wrapper {
+  display: flex;
+  margin-top: 0.3em;
+}
+
+.business-address, .business-city-state {
+  margin-top: 0.2em;
+}
+
+.reviews-wrapper {
+  margin-top: 1em;
+}
+
+p.reviews-label {
+  margin-bottom: 0.8em;
+  cursor: pointer;
+  color: #1A73E8;
+  display: inline-block;
+}
+
+.reviews-toggle-icon {
+  width: 10px;
+  margin-left: 0.3em;
+}
+
+.reviews-loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/*------------------- StarsRating -------------------*/
+
+.stars-list {
+  display: flex;
+  padding: 0 0.4em 0 0.4em;
+}
+
+.star-icon {
+  width: 12px;
+  margin-left: 2px;
+}
+
+/*------------------- ReviewsList -------------------*/
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+  padding-right: 1.3em;
+}
+
+.review-list div:first-child {
+  overflow: hidden;
+}
+
+.reviews-list .review:not(:first-child) {
+  margin-top: 1em;
+}
+
+p.show-more-reviews {
+  color: #1A73E8;
+  cursor: pointer;
+  font-style: italic;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  width: 9.5em;
+}
+
+/*------------------- Review -------------------*/
+
+.review {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 1px #e8e8e8;
+}
+
+.review-stars-date-wrapper {
+  display: flex;
+}
+
+.review-stars-date-wrapper .stars-list {
+  padding-left: 0;
+}
+
+.review-text {
+  margin-top: 0.6em;
+  font-style: italic;
+  white-space: pre-wrap;
+  margin-bottom: 1em;
+}
+
+p.review-show-more {
+  width: auto;
+  color: #1A73E8;
+  cursor: pointer;
+  margin-bottom: 1em;
+  width: 5.5em;
+}
+
+.review-emoji-wrapper {
+  display: flex;
+}
+
+.review-emoji-wrapper p {
+  display: flex;
+  align-items: center;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
+}
+
+.review-emoji-wrapper p:not(:first-child) {
+  margin-left: 1.1em;
+}
+
+.review-emoji-wrapper p img {
+  width: 20px;
+  margin-right: 0.5em;
+}
+/*------------------- Map -------------------*/
+
+#map {
+  width: 100%;
+  height: 100vh;
+}
+
+/*------------------- Footer -------------------*/
+
+footer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  bottom: 0;
+}
+
+footer p {
+  color: #696666;
+  font-family: 'Roboto-Medium';
+  font-size: 0.9em;
+}
+
+footer img {
+  width: 18px;
+  margin-left: 1em;
+}
+
+/*------------------- Global media queries -------------------*/
+
+@media (max-width: 1070px){
+  .businesses-section {
+    width: 35em;
+  }
+}
+
+@media (max-width: 840px){
+  .businesses-section {
+    width: 40em;
+  }
+}
+
+@media (max-width: 750px){
+  .businesses-section {
+    width: 45em;
+  }
+}
+
+@media (max-width: 630px){
+  .businesses-section {
+    width: 55em;
+  }
+}
+
+@media (max-width: 620px){
+  #map {
+    width: 0;
+  }
+  .businesses-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 330px){
+  .businesses-section h1 {
+    font-size: 1.3em;
+  }
+}
