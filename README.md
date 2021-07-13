@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Yelp Elasticsearch project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to the deployed project: https://antonin-jolivat.com/yelp-elasticsearch/
 
-## Available Scripts
+The project has been constructed around the [Yelp dataset](https://www.yelp.com/dataset). Businesses and reviews were indexed in an Elasticsearch cluster and search queries were made. 
 
-In the project directory, you can run:
+On the Responsive React Web App, you can search for businesses and filter results by city. For each business found, you can see its reviews and its position on the interactive map on the right of the screen. When you make a query, the businesses which match your query and which have the most stars and reviews count will be retrieved first.
 
-### `npm start`
+The web app is fully responsive but the map is disabled on mobile devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I made this little project in very short period of time to learn more about Elasticsearch and React. This was the opportunity to make a croncrete project around these technologies.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Backend infrastructure
 
-### `npm test`
+I made a little Flask API that you can find there: https://github.com/AntoJvlt/yelp-elasticsearch-backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This Flask API is used as a proxy in order to secure connections to my Elasticsearch cluster in the cloud. It contains needed endpoints with the queries definition.
 
-### `npm run build`
+To access this Flask API with HTTPS, a reverse proxy has been set up with nginx on my personal server (the same server which serves the static React app).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Elasticsearch Queries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The search query tries to match the query words in multiple fields of the business definition and it also searchs inside all of the reviews made by users. 
+The businesses with the highest stars and reviews count are prioritized, this was done by boosting these values with a "function_score". 
+The search query can also filter by city if one is given.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+50 businesses are retrieved at most for each query, this value was set arbitrarily for this project.
 
-### `npm run eject`
+## Map
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The map was made with [OpenLayers](https://openlayers.org/) and it uses OpenStreetMap data. Note that the map is disabled on mobile devices.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Demo video
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A little demo video of the app was made, you can find it there: https://www.youtube.com/watch?v=0t2wYfeOaC0
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Possible evolutions
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Add fuzzy queries to allow typing mistakes.
+* Use another analyzer like N-Gram in order to improve queries results.
+* Improve the function score to prioterize the average rating value even more.
+* Make a pagination system to not fetch all reviews at once for one business. The same could be applied to retrieve more than 50 businesses when making a search. 
