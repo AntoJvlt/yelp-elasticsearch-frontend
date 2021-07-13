@@ -6,8 +6,8 @@ import Review from './Review'
  * Handles the list of reviews of one business.
  */
 const ReviewsList = ({ reviews, isToggle }) => {
-    const AMOUNT_DISPLAY_STEP = 10
-    const [currentDisplayedAmount, setCurrentDisplayedAmount] = useState(0)
+    const AMOUNT_DISPLAY_STEP = 20
+    const [currentDisplayedAmount, setCurrentDisplayedAmount] = useState(AMOUNT_DISPLAY_STEP)
 
     /**
      * Increases the number of reviews displayed.
@@ -22,10 +22,6 @@ const ReviewsList = ({ reviews, isToggle }) => {
     }
 
     useEffect(() => {
-        showMoreReviews()
-    }, [])
-
-    useEffect(() => {
         if (!isToggle) {
             setCurrentDisplayedAmount(AMOUNT_DISPLAY_STEP)
         }
@@ -35,7 +31,7 @@ const ReviewsList = ({ reviews, isToggle }) => {
         <Scrollbars autoHeight autoHeightMax={500}>
             <div className='reviews-list'>
                 {reviews.slice(0, currentDisplayedAmount ? currentDisplayedAmount : AMOUNT_DISPLAY_STEP - 1).map((review) => <Review key={review.review_id} review={review}/>)}
-                <p className='show-more-reviews' onClick={showMoreReviews}>Show more reviews</p>
+                {(reviews.length > 0 && currentDisplayedAmount < reviews.length) && <p className='show-more-reviews' onClick={showMoreReviews}>Show more reviews</p>}
             </div>
         </Scrollbars>
     )

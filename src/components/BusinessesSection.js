@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
+import API_URL from '../api';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import LoadingIndicator from './LoadingIndicator';
 import SearchIcon from '../assets/icons/search.svg'
@@ -47,9 +48,9 @@ const BusinessesSection = ({ onBusinessHover }) => {
      */
     const searchBusinesses = async (queryTerms) => {
         if (!promiseInProgress && queryTerms && queryTerms !== '') {
-            var query = `http://localhost:5000/search/${queryTerms}`
+            var query = `${API_URL}/search/${queryTerms}`
             if (cityValue && cityValue !== 'City' && cityValue !== '') {
-                query = `http://localhost:5000/search/${queryTerms}?city=${cityValue}`
+                query = `${API_URL}/search/${queryTerms}?city=${cityValue}`
             }
             const response = await trackPromise(fetch(query), 'businesses-fetch')
             const data = await response.json()

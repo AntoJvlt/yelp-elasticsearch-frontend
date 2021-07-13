@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
+import API_URL from '../api';
 import StarsRating from "./StarsRating"
 import DownArrow from '../assets/icons/down-arrow.svg'
 import RightArrow from '../assets/icons/right-arrow.svg'
@@ -33,7 +34,7 @@ const Business = ({ business, onBusinessHover }) => {
      * Fetchs reviews of this business from the API and set them in the reviews set.
      */
     const fetchReviews = async () => {
-        const response = await trackPromise(fetch(`http://localhost:5000/reviews/${business.business_id}`), `reviews-area-${business.business_id}`)
+        const response = await trackPromise(fetch(`${API_URL}/reviews/${business.business_id}`), `reviews-area-${business.business_id}`)
         const data = await response.json()
         setReviews(data)
     }
