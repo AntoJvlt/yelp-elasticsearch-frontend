@@ -2,7 +2,7 @@
 
 Link to the deployed project: https://antonin-jolivat.com/yelp-elasticsearch/
 
-The project has been constructed around the [Yelp dataset](https://www.yelp.com/dataset). Businesses and reviews were indexed in an Elasticsearch cluster and search queries were made. 
+The project has been constructed around the [Yelp dataset](https://www.yelp.com/dataset). Businesses and reviews were indexed in an Elasticsearch cluster and search queries were made. The Elasticsearch instance contains about 200 000 businesses and about 8 000 000 reviews.
 
 On the Responsive React Web App, you can search for businesses and filter results by city. For each business found, you can see its reviews and its position on the interactive map on the right of the screen. When you make a query, the businesses which match your query and which have the most stars and reviews count will be retrieved first.
 
@@ -39,4 +39,5 @@ A little demo video of the app was made, you can find it there: https://www.yout
 * Add fuzzy queries to allow typing mistakes.
 * Use another analyzer like N-Gram in order to improve queries results.
 * Improve the function score to prioterize the average rating value even more.
-* Make a pagination system to not fetch all reviews at once for one business. The same could be applied to retrieve more than 50 businesses when making a search. 
+* Make a pagination system to not fetch all reviews at once for one business. The same could be applied to retrieve more than 50 businesses when making a search.
+* Add multiple language support.
